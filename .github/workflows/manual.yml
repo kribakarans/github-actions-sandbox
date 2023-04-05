@@ -25,9 +25,11 @@ jobs:
         path: __html/doxygen
 
   deploy:
-    environment:
+    env:
       name: doxygen-site
       url: ${{ steps.deployment.outputs.page_url }}
+      GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
