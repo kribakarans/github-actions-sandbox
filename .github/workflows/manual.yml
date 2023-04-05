@@ -13,7 +13,7 @@ jobs:
     - name: Installing Doxygen
       run: |
         sudo apt-get update && \
-        sudo apt-get install -y --no-install-recommends doxygen
+        sudo apt-get install -y --no-install-recommends doxygen graphviz
 
     - name: Building Doxygen
       run: doxygen docs/doxygen.cfg
@@ -22,4 +22,4 @@ jobs:
       uses: actions/upload-artifact@v3.1.2
       with:
         name: doxygen-site
-        path: ./build
+        path: __html/doxygen
