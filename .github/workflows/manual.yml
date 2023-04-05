@@ -11,4 +11,4 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Installing Doxygen
-      run: apt-get update
+      run: sudo apt-get update
