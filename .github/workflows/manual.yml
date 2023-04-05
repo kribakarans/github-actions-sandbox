@@ -4,6 +4,11 @@ on:
   push:
     branches: [ "master" ]
 
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
 jobs:
   doxygen:
     runs-on: ubuntu-latest
@@ -25,10 +30,9 @@ jobs:
         path: __html/doxygen
 
   deploy:
-    env:
-      name: doxygen-site
+    environment:
+      name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-      GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
