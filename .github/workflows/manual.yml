@@ -16,4 +16,4 @@ jobs:
         sudo apt-get install -y --no-install-recommends doxygen
 
     - name: Building Doxygen
-      run: echo "$PWD"
+      run: doxygen docs/doxygen.cfg
